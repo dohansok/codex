@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오디오 분석기 (코드/멜로디)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>🎵 오디오 분석기</h1>
+    <p class="subtitle">오디오 파일을 선택하고 <strong>분석하기</strong>를 누르면, 키/템포/코드/멜로디를 바로 보여줍니다.</p>
+
+    <section class="card">
+      <label for="audioFile">1) 오디오 파일 선택</label>
+      <input id="audioFile" type="file" accept="audio/*" />
+      <button id="analyzeBtn" disabled>2) 분석하기</button>
+      <p id="status">파일을 선택해주세요.</p>
+      <audio id="player" controls></audio>
+    </section>
+
+    <section id="result" class="card hidden">
+      <h2>분석 결과</h2>
+      <ul>
+        <li><strong>길이:</strong> <span id="duration"></span></li>
+        <li><strong>예상 BPM:</strong> <span id="bpm"></span></li>
+        <li><strong>예상 키:</strong> <span id="key"></span></li>
+      </ul>
+
+      <h3>코드 진행 (간단 추정)</h3>
+      <p id="chords"></p>
+
+      <h3>멜로디 노트 (상위 16개)</h3>
+      <p id="melody"></p>
+
+      <button id="downloadBtn">결과 JSON 다운로드</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
